@@ -43,7 +43,6 @@ export default function Hero() {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover object-center"
-        poster="/hero-pizza.jpg"
       >
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
