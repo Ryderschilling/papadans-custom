@@ -17,12 +17,12 @@ const config: Config = {
         'pd-gray': '#1A1A1A',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Georgia', 'serif'],
+        serif: ['Dancing Script', 'cursive'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-up': 'fadeUp 0.8s ease forwards',
-        'fade-in': 'fadeIn 1s ease forwards',
+        'fade-in': 'fadeIn 0.25s ease forwards',
       },
       keyframes: {
         fadeUp: {

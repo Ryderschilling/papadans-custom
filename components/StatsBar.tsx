@@ -6,8 +6,8 @@ import { useRef } from 'react'
 const stats = [
   { value: 'Est. 1984', label: 'Serving the Valley' },
   { value: '#1 Pizza', label: 'Voted Best in Coachella Valley' },
-  { value: '5★', label: 'Yelp Rated' },
-  { value: '3 Ways', label: 'Dine-In · Takeout · Delivery' },
+  { value: '4.1★', label: '810+ Google Reviews' },
+  { value: '160+ Items', label: 'Pizza · Pasta · Seafood & More' },
 ]
 
 export default function StatsBar() {
@@ -34,21 +34,21 @@ export default function StatsBar() {
   }
 
   return (
-    <section ref={ref} className="bg-pd-gray py-12 md:py-16 border-y border-white/10">
+    <section ref={ref} className="bg-gray-100 py-0 md:py-16 border-y border-gray-200">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="container grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-0"
+        className="container grid grid-cols-2 md:grid-cols-4 gap-0"
       >
         {stats.map((stat, index) => (
           <motion.div
             key={stat.value}
             variants={itemVariants}
-            className={`flex flex-col items-center justify-center py-8 ${index !== stats.length - 1 ? 'md:border-r border-white/10' : ''}`}
+            className={`flex flex-col items-center justify-center py-5 md:py-8 ${index !== stats.length - 1 ? 'md:border-r border-gray-200' : ''} ${index % 2 === 0 ? 'border-r border-gray-200 md:border-r-0' : ''} ${index < 2 ? 'border-b border-gray-200 md:border-b-0' : ''}`}
           >
-            <h3 className="text-4xl md:text-5xl font-serif text-pd-gold mb-2">{stat.value}</h3>
-            <p className="text-sm md:text-base text-gray-300">{stat.label}</p>
+            <h3 className="text-2xl md:text-5xl font-serif text-pd-gold mb-1">{stat.value}</h3>
+            <p className="text-xs md:text-base text-gray-600 text-center px-2">{stat.label}</p>
           </motion.div>
         ))}
       </motion.div>

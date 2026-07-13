@@ -36,15 +36,20 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-      {/* Background Image */}
-      <img
-        src="/hero-pizza.jpg"
-        alt="Papa Dan's Pizza fresh from the oven"
+      {/* Hero Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
         className="absolute inset-0 w-full h-full object-cover object-center"
-      />
+        poster="/hero-pizza.jpg"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/60" />
 
       {/* Content */}
       <motion.div

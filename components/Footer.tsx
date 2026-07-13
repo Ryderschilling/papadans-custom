@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-pd-black border-t border-white/10">
+    <footer className="bg-gray-100 border-t border-gray-200">
       <div className="container py-16 md:py-20">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -17,14 +17,14 @@ export default function Footer() {
               alt="Papa Dan's Logo"
               className="h-12 w-auto mb-4"
             />
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-600 text-sm">
               Voted Best Pizza in the Coachella Valley. Serving Palm Desert since 1984.
             </p>
           </div>
 
           {/* Hours */}
           <div>
-            <h4 className="text-white font-serif text-lg mb-4">Hours</h4>
+            <h4 className="text-gray-900 font-serif text-lg mb-4">Hours</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>Mon–Thu: 11am–7:30pm</li>
               <li>Fri: 11am–8:30pm</li>
@@ -35,7 +35,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-serif text-lg mb-4">Contact</h4>
+            <h4 className="text-gray-900 font-serif text-lg mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>
                 <a href="tel:7605683267" className="hover:text-pd-gold transition-colors">
@@ -54,13 +54,13 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="text-white font-serif text-lg mb-4">Follow Us</h4>
+            <h4 className="text-gray-900 font-serif text-lg mb-4">Follow Us</h4>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/PapaDansPizza/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-pd-gold transition-colors"
+                className="text-gray-600 hover:text-pd-gold transition-colors"
                 aria-label="Facebook"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -68,10 +68,10 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/papadanspizzaandpasta"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-pd-gold transition-colors"
+                className="text-gray-600 hover:text-pd-gold transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -79,10 +79,10 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://yelp.com"
+                href="https://www.yelp.com/biz/papa-dans-pizza-and-pasta-palm-desert-3"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-pd-gold transition-colors"
+                className="text-gray-600 hover:text-pd-gold transition-colors"
                 aria-label="Yelp"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -94,12 +94,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-white/10 pt-8">
+        <div className="border-t border-gray-200 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
             <p>© {currentYear} Papa Dan's Pizza & Pasta · All Rights Reserved</p>
             <p className="mt-4 md:mt-0">
               Site by{' '}
-              <a href="mailto:ryderschilling@gmail.com" className="text-pd-gold hover:text-pd-cream transition-colors">
+              <a href="mailto:ryderschilling@gmail.com" className="text-pd-gold hover:text-pd-red transition-colors">
                 Ryder Schilling
               </a>
             </p>

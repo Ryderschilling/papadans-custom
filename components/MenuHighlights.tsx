@@ -46,7 +46,7 @@ export default function MenuHighlights() {
   }
 
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-pd-black">
+    <section ref={ref} className="py-20 md:py-32 bg-gray-50">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -54,20 +54,22 @@ export default function MenuHighlights() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-serif text-white mb-4">Menu Highlights</h2>
-          <p className="text-lg text-gray-400">Explore our signature offerings</p>
+          <h2 className="text-5xl md:text-6xl font-serif text-gray-900 mb-4">Menu Highlights</h2>
+          <p className="text-lg text-gray-500">Explore our signature offerings</p>
         </motion.div>
 
+        {/* Mobile: horizontal scroll row | Desktop: 3-col grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {highlights.map((item, index) => (
-            <motion.div key={item.title} variants={itemVariants}>
-              <Link href="/menu">
-                <div className="group relative overflow-hidden rounded-lg cursor-pointer h-96 md:h-[500px]">
+            <motion.div key={item.title} variants={itemVariants} className="flex-none w-[75vw] md:w-auto snap-center">
+              <Link href={`/menu?category=${item.title}`}>
+                <div className="group relative overflow-hidden rounded-lg cursor-pointer h-72 md:h-[500px]">
                   {/* Background Image */}
                   <img
                     src={item.image}

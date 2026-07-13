@@ -1,48 +1,67 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { menuItems } from '@/data/menu'
 import MenuFilter from '@/components/menu/MenuFilter'
 import MenuGrid from '@/components/menu/MenuGrid'
-import { motion } from 'framer-motion'
+
+const DRAWING_URL = 'https://static.spotapps.co/web/papadanspalmdesert--com/custom/order_back.png'
 
 export default function MenuPage() {
+  const searchParams = useSearchParams()
   const [activeFilter, setActiveFilter] = useState('All')
+
+  useEffect(() => {
+    const category = searchParams.get('category')
+    if (category) setActiveFilter(category)
+  }, [searchParams])
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-[400px] md:min-h-[500px] w-full overflow-hidden flex items-center justify-center bg-gradient-to-b from-pd-gray to-pd-black pt-24">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center z-10 px-4"
-        >
-          <h1 className="text-6xl md:text-7xl font-serif text-white mb-4">Our Menu</h1>
-          <p className="text-lg text-pd-cream">Explore our full range of authentic Italian-American cuisine</p>
-        </motion.div>
-      </section>
+      {/* Italian drawings — fixed to viewport sides, always visible while on this page */}
+      <div
+        className="fixed top-0 left-0 h-full w-64 pointer-events-none"
+        style={{
+          zIndex: 1,
+          backgroundImage: `url(${DRAWING_URL})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'left center',
+          opacity: 0.06,
+          maskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, black 0%, black 30%, transparent 100%)',
+        }}
+      />
+      <div
+        className="fixed top-0 right-0 h-full w-64 pointer-events-none"
+        style={{
+          zIndex: 1,
+          backgroundImage: `url(${DRAWING_URL})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'right center',
+          opacity: 0.06,
+          maskImage: 'linear-gradient(to left, black 0%, black 30%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to left, black 0%, black 30%, transparent 100%)',
+        }}
+      />
 
       {/* Menu Section */}
-      <section className="py-20 md:py-32 bg-pd-black">
-        <div className="container">
-          {/* Filter */}
-          <MenuFilter activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+      <section className="bg-white pt-20 relative">
 
-          {/* Grid */}
-          <div className="mt-12">
-            <MenuGrid items={menuItems} activeFilter={activeFilter} />
+        {/* Sticky filter bar — sits just below the nav */}
+        <div className="sticky top-20 bg-white z-30 border-b border-gray-100 shadow-sm">
+          <div className="container py-4">
+            <MenuFilter activeFilter={activeFilter} onFilterChange={setActiveFilter} />
           </div>
+        </div>
+
+        {/* Scrollable menu content */}
+        <div className="container py-12 relative z-10">
+          <MenuGrid items={menuItems} activeFilter={activeFilter} />
 
           {/* CTA at bottom */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mt-20 pt-20 border-t border-white/10 text-center"
-          >
-            <p className="text-lg text-gray-400 mb-8">Ready to place an order?</p>
+          <div className="mt-20 pt-20 border-t border-gray-200 text-center">
+            <p className="text-lg text-gray-600 mb-8">Ready to place an order?</p>
             <a
               href="https://orderonline.granburyrs.com/slice/menu/main"
               target="_blank"
@@ -51,7 +70,7 @@ export default function MenuPage() {
             >
               ORDER NOW
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

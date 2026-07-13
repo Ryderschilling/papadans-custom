@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, layoutId } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
 
 const categories = ['All', 'Pizza', 'Pasta', 'Subs', 'Salads', 'Appetizers', 'Seafood', 'Breakfast', 'Lunch', 'Desserts', 'Bar & Drinks']
@@ -46,10 +46,10 @@ export default function MenuFilter({ activeFilter, onFilterChange }: MenuFilterP
       {canScrollLeft && (
         <button
           onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-pd-black/80 p-2 rounded-full hover:bg-pd-black transition-colors"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 shadow p-2 rounded-full hover:bg-white transition-colors"
           aria-label="Scroll left"
         >
-          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
@@ -67,12 +67,13 @@ export default function MenuFilter({ activeFilter, onFilterChange }: MenuFilterP
             onClick={() => onFilterChange(category)}
             className="relative whitespace-nowrap py-2 px-4 text-sm md:text-base font-medium transition-colors"
           >
-            <span className={activeFilter === category ? 'text-pd-red' : 'text-gray-400 hover:text-white'}>
+            <span className={activeFilter === category ? 'text-pd-red' : 'text-gray-500 hover:text-gray-900'}>
               {category}
             </span>
-            {activeFilter === category && (
-              <motion.div layoutId="underline" className="absolute bottom-0 left-0 right-0 h-0.5 bg-pd-red" />
-            )}
+            <div
+              className="absolute bottom-0 left-0 right-0 h-0.5 bg-pd-red transition-opacity duration-200"
+              style={{ opacity: activeFilter === category ? 1 : 0 }}
+            />
           </button>
         ))}
       </div>
@@ -81,10 +82,10 @@ export default function MenuFilter({ activeFilter, onFilterChange }: MenuFilterP
       {canScrollRight && (
         <button
           onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-pd-black/80 p-2 rounded-full hover:bg-pd-black transition-colors"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 shadow p-2 rounded-full hover:bg-white transition-colors"
           aria-label="Scroll right"
         >
-          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>

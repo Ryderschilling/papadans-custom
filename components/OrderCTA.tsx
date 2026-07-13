@@ -8,12 +8,17 @@ export default function OrderCTA() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-gradient-to-b from-pd-black to-pd-gray relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 right-20 w-72 h-72 bg-pd-red rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-72 h-72 bg-pd-gold rounded-full blur-3xl"></div>
-      </div>
+    <section
+      ref={ref}
+      className="py-20 md:py-32 relative overflow-hidden"
+      style={{
+        backgroundColor: '#C41E3A',
+        backgroundImage: 'url(https://static.spotapps.co/web/papadanspalmdesert--com/custom/order_back.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
 
       <motion.div
         ref={ref}
@@ -32,7 +37,7 @@ export default function OrderCTA() {
             href="https://orderonline.granburyrs.com/slice/menu/main"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary flex-1 sm:flex-auto"
+            className="bg-gray-900 hover:bg-black text-white px-8 py-3 rounded font-semibold transition-all duration-300 flex-1 sm:flex-auto"
           >
             ORDER ONLINE
           </a>
