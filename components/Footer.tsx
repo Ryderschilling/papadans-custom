@@ -12,11 +12,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Logo & About */}
           <div>
-            <img
-              src="https://images.squarespace-cdn.com/content/6a04e4600f337923d09154c8/822546d0-a20b-4d6b-980b-4fb476c3ab26/papa-dans-logo-oval-light.png"
-              alt="Papa Dan's Logo"
-              className="h-12 w-auto mb-4"
-            />
+            <div className="inline-block rounded-xl mb-4" style={{ background: '#b41419', padding: '6px 10px' }}>
+              <img
+                src="/chef-logo.png"
+                alt="Papa Dan's Logo"
+                className="h-12 w-auto"
+              />
+            </div>
             <p className="text-gray-600 text-sm">
               Voted Best Pizza in the Coachella Valley. Serving Palm Desert since 1984.
             </p>

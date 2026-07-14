@@ -53,7 +53,7 @@ export default function Nav() {
 
         <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center">
           <img
-            src="https://images.squarespace-cdn.com/content/6a04e4600f337923d09154c8/822546d0-a20b-4d6b-980b-4fb476c3ab26/papa-dans-logo-oval-light.png"
+            src="/chef-logo.png"
             alt="Papa Dan's Pizza & Pasta"
             className="h-12 w-auto"
           />
@@ -87,7 +87,7 @@ export default function Nav() {
       <div className="md:hidden flex items-center justify-between h-16 px-4">
         <Link href="/">
           <img
-            src="https://images.squarespace-cdn.com/content/6a04e4600f337923d09154c8/822546d0-a20b-4d6b-980b-4fb476c3ab26/papa-dans-logo-oval-light.png"
+            src="/chef-logo.png"
             alt="Papa Dan's Pizza & Pasta"
             className="h-10 w-auto"
           />
@@ -125,7 +125,7 @@ export default function Nav() {
               <div className="flex items-center justify-between px-6 h-16 border-b border-white/10">
                 <Link href="/" onClick={() => { if (canClose) setIsMenuOpen(false) }}>
                   <img
-                    src="https://images.squarespace-cdn.com/content/6a04e4600f337923d09154c8/822546d0-a20b-4d6b-980b-4fb476c3ab26/papa-dans-logo-oval-light.png"
+                    src="/chef-logo.png"
                     alt="Papa Dan's Pizza & Pasta"
                     className="h-10 w-auto"
                   />
